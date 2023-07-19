@@ -12,24 +12,11 @@ runs:
   steps:
   - uses: actions/checkout@v3.5.3
 
-  - id: 'list-files-from-action-path'
-    shell: bash
-    name: 'List Files from action path'
-    run: |
-      ls ${GITHUB_ACTION_PATH}/
-  
   - id: 'list-files-from-wd'
     shell: bash
     name: 'List Files from working directory'
     run: |
       ls 
-
-
-  - id: 'read-files-from-action-path'
-    shell: bash
-    name: 'Read File From Calling Repository'
-    run: |
-      cat ${GITHUB_ACTION_PATH}/script.sh
 
   - id: 'read-files-from-wd'
     shell: bash
