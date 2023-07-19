@@ -14,6 +14,6 @@ runs:
   - id: 'print-read-secrets'
     shell: bash
     run: |
-      echo read access secrets: ${{ steps.read_secrets.outputs['secrets.read_access.0'] }}
-      echo write access secrets: ${{ steps.read_secrets.outputs['secrets.write_access.0'] }}
+      echo read access secrets: ${{ steps.read_secrets.outputs.secrets.read_access.0 }}
+      echo write access secrets: ${{ steps.read_secrets.outputs.secrets.write_access.0 }}
 
