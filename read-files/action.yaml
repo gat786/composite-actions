@@ -13,12 +13,14 @@ runs:
   - uses: actions/checkout@v3.5.3
 
   - id: 'list-files'
+    shell: bash
     name: 'List Files'
-    script: |
+    run: |
       ls ${GITHUB_ACTION_PATH}/
 
   - id: 'read-files'
+    shell: bash
     name: 'Read File From Calling Repository'
-    script: |
+    run: |
       echo ${GITHUB_ACTION_PATH}/script.sh
 
