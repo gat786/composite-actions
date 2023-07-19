@@ -7,7 +7,7 @@ runs:
   - uses: actions/checkout@v3.5.3
 
   - id: 'read_secrets'
-    uses: pietrobolcato/action-read-yaml@1.0.0
+    uses: pietrobolcato/action-read-yaml@1.1.0
     with:
       config: secrets-config.yaml
 
