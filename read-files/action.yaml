@@ -35,4 +35,4 @@ runs:
     shell: bash
     name: 'Read File From Working Directory'
     run: |
-      echo /script.sh
+      echo script.sh
