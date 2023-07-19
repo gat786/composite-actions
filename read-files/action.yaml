@@ -1,25 +1,19 @@
 name: Assign Permissions to Access Secrets
 description: GH Actions Automation for creating SA and assigning permissions to access Secrets to it.
 
-inputs:
-  secrets_list:
-    description: "List of secrets that would be assigned perms"
-    required: true
-
-
 runs:
   using: "composite"
   steps:
   - uses: actions/checkout@v3.5.3
 
-  - id: 'list-files-from-wd'
-    shell: bash
-    name: 'List Files from working directory'
-    run: |
-      ls 
+  - id: 'read_secrets'
+    uses: pietrobolcato/action-read-yaml@1.0.0
+    with:
+      config: secrets-config.yaml
 
-  - id: 'read-files-from-wd'
+  - id: 'print-read-secrets'
     shell: bash
-    name: 'Read File From Working Directory'
     run: |
-      cat script.sh
+      echo ${{ steps.read_secrets.outputs['secrets']['read_access'] }}
+      echo ${{ steps.read_secrets.outputs['secrets']['write_access'] }}
+
