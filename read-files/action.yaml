@@ -13,10 +13,10 @@ runs:
   - uses: actions/checkout@v3.5.3
 
   - uses: List files from Github Repository
-    run: |
+    script: |
       ls ${GITHUB_ACTION_PATH}/
 
   - uses: Read File From Calling Repository
-    run: |
+    script: |
       echo ${GITHUB_ACTION_PATH}/script.sh
 
