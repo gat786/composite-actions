@@ -1,0 +1,22 @@
+name: Assign Permissions to Access Secrets
+description: GH Actions Automation for creating SA and assigning permissions to access Secrets to it.
+
+inputs:
+  secrets_list:
+    description: "List of secrets that would be assigned perms"
+    required: true
+
+
+runs:
+  using: "composite"
+  steps:
+  - uses: actions/checkout@v3.5.3
+
+  - uses: List files from Github Repository
+    run: |
+      ls ${GITHUB_ACTION_PATH}/
+
+  - uses: Read File From Calling Repository
+    run: |
+      echo ${GITHUB_ACTION_PATH}/script.sh
+
