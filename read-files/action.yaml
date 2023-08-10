@@ -1,19 +1,24 @@
 name: Assign Permissions to Access Secrets
 description: GH Actions Automation for creating SA and assigning permissions to access Secrets to it.
 
+inputs:
+  required_variable:
+    required: true
+    description: "This needs to be setup for this action to work"
+  optional_variable:
+    required: false
+    description: "You can leave this empty, if you do so it will take the value of required input"
+
 runs:
   using: "composite"
   steps:
   - uses: actions/checkout@v3.5.3
 
-  - id: 'read_secrets'
-    uses: pietrobolcato/action-read-yaml@1.1.0
-    with:
-      config: secrets-config.yaml
-
-  - id: 'print-read-secrets'
+  - id: "print values"
+    name: "awesome"
     shell: bash
+    with:
+      optional: ${{ inputs.optional_variable != '' && inputs.optional_variable || inputs.required_variable }}
     run: |
-      echo read access secrets: ${{ steps.read_secrets.outputs.secrets.read_access }}
-      echo write access secrets: ${{ steps.read_secrets.outputs.secrets.write_access }}
-
+      echo 'Required Variable ${{ inputs.required_variable }}'
+      echo 'Optional Variable $optional'
