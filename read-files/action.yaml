@@ -20,5 +20,5 @@ runs:
     env:
       optional: ${{ inputs.optional_variable != '' && inputs.optional_variable || inputs.required_variable }}
     run: |
-      echo 'Required Variable ${{ inputs.required_variable }}'
-      echo 'Optional Variable $optional'
+      echo Required Variable ${{ inputs.required_variable }}
+      echo Optional Variable $optional
